@@ -1,0 +1,12 @@
+services:
+  taskapp:
+    build: 
+      dockerfile: Dockerfile
+      context: ./
+    ports:
+      - "3000:3000"
+    volumes:
+      - nodejs:/blen/node_modules
+    entrypoint: ["pnpm", "dev"]
+volumes:
+  nodejs:
