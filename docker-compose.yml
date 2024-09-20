@@ -6,6 +6,20 @@ services:
     ports:
       - "3000:3000"
     volumes:
+      - ./migrations:/blen/migrations
+      - ./public:/blen/public
+      - ./src:/blen/src
+      - ./__tests__:/blen/__tests__
+      - ./.eslintrc.json:/blen/.eslintrc.json
+      - ./.prettierrc:/blen/.prettierrc
+      - ./drizzle.config.ts:/blen/drizzle.config.ts
+      - ./jest.config.ts:/blen/jest.config.ts
+      - ./next.config.mjs:/blen/next.config.mjs
+      - ./package.json:/blen/package.json
+      - ./pnpm-lock.yaml:/blen/pnpm-lock.yaml
+      - ./postcss.config.mjs:/blen/postcss.config.mjs
+      - ./tailwind.config.ts:/blen/tailwind.config.ts
+      - ./tsconfig.json:/blen/tsconfig.json
       - nodejs:/blen/node_modules
     entrypoint: ["pnpm", "dev"]
 volumes:
