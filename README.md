@@ -113,3 +113,13 @@ We will evaluate your submission based on:
 - Late submissions are welcome and will be reviewed, though priority will be given to timely submissions
 
 Good luck! We're excited to see your solution.
+
+# Docker Compose
+
+Run the following command to run this project within a docker container:
+
+```bash
+docker compose up taskapp
+```
+
+...Then, navigate with your browser to http://localhost:3000
