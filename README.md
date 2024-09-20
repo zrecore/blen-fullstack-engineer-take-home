@@ -123,3 +123,17 @@ docker compose up taskapp
 ```
 
 ...Then, navigate with your browser to http://localhost:3000
+
+# Tests (Jest)
+
+Run the following command to run the Jest tests
+
+```bash
+docker compose exec taskapp pnpm run watch
+```
+
+Or to run `jest` with the `--watch` flag enabled
+
+```bash
+docker compose exec taskapp pnpm run test:watch
+```
