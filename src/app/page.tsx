@@ -1,23 +1,30 @@
-import Tasks from '../components/tasks';
+"use server"
 
-import { Task, tasks } from '@/db/schema';
-import { db } from '../db/client';
-
-async function getTasks() {
-  const all_tasks:Task[] = await db.select().from(tasks);
-  return all_tasks;
-}
-
+import { getData } from '@/actions/taskActions';
+import TaskAdd from '@/components/taskAdd';
+import Tasks from '@/components/tasks';
+import { NewTask, Task } from '@/db/schema';
+import Welcome from '../components/welcome';
 
 export default async function Home() {
-  let alltasks = await getTasks();
 
-  if (!alltasks.length) alltasks = []
+  const tasks:Task[] = await getData()
+  
+  let addTask:NewTask = {
+    title: "",
+    description: "",
+    dueDate: ""
+  }
 
   return (
     <main className="flex flex-col gap-10 p-10">
-      {/* <Welcome /> */}
-      <Tasks tasks={alltasks} />
+      <Welcome />
+      <TaskAdd
+        title={addTask.title}
+        description={addTask.description}
+        dueDate={addTask.dueDate}
+      />
+      <Tasks tasks={tasks} />
     </main>
   );
 }
